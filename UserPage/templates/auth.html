@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+</head>
+<body>
+    {% comment %} {% with flag=0 %}
+    {% for i in users  %}
+    {% if i.name == a %}
+        {% if i.password == b %}
+            </p>Matched</p>
+            {{with flag=1}}
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+    
+    {% if flag == 0 %}
+            <p>Sorry! That didnt workout</p>
+    {% endif %} {% endcomment %}
+    hi {{a}}
+</body>
+</html>
