@@ -1,6 +1,9 @@
 from multiprocessing import context
+from unicodedata import name
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+
 
 from UserPage.models import Users
 # Create your views here.
@@ -24,5 +27,15 @@ def auth(request):
             return HttpResponse(temp.render(context,request))
     if flag == 0:
         return HttpResponse(err.render())
+
+def signup(request):
+    temp = loader.get_template('signup.html')
+    return HttpResponse(temp.render({}, request))
+
+def signin(request):
+    x = request.POST['username']
+    y = request.POST['pass']
+    Users.objects.create(name=x,password=y)
+    return HttpResponseRedirect(reverse('index'))
         
             
